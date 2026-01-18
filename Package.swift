@@ -8,15 +8,15 @@ let package = Package(
         .macOS(.v26),
         .iOS(.v26),
         .tvOS(.v26),
-        .watchOS(.v26),
+        .watchOS(.v26)
     ],
     products: [
-        .library(name: "Sockets Standard", targets: ["Sockets Standard"]),
+        .library(name: "Sockets Standard", targets: ["Sockets Standard"])
     ],
     dependencies: [
         .package(path: "../swift-rfc-768"),
         .package(path: "../swift-rfc-791"),
-        .package(path: "../swift-rfc-9293"),
+        .package(path: "../swift-rfc-9293")
     ],
     targets: [
         .target(
@@ -24,13 +24,9 @@ let package = Package(
             dependencies: [
                 .product(name: "RFC 768", package: "swift-rfc-768"),
                 .product(name: "RFC 791", package: "swift-rfc-791"),
-                .product(name: "RFC 9293", package: "swift-rfc-9293"),
+                .product(name: "RFC 9293", package: "swift-rfc-9293")
             ]
-        ),
-        .testTarget(
-            name: "Sockets Standard Tests",
-            dependencies: ["Sockets Standard"]
-        ),
+        )
     ],
     swiftLanguageModes: [.v6]
 )
@@ -40,6 +36,6 @@ for target in package.targets where ![.system, .binary, .plugin].contains(target
     target.swiftSettings = existing + [
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
-        .enableUpcomingFeature("MemberImportVisibility"),
+        .enableUpcomingFeature("MemberImportVisibility")
     ]
 }
