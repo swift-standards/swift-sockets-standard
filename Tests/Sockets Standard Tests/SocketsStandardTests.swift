@@ -21,28 +21,28 @@ struct SocketsStandardTests {
   @Suite("TCP")
   struct TCPTests {
 
-    @Test("TCP port typealias works")
-    func tcpPort() {
+    @Test
+    func `TCP port typealias works`() {
       let port = Sockets.TCP.Port.http
       #expect(port.rawValue == 80)
     }
 
-    @Test("TCP state typealias works")
-    func tcpState() {
+    @Test
+    func `TCP state typealias works`() {
       let state = Sockets.TCP.State.established
       #expect(state.canSendData)
       #expect(state.isSynchronized)
     }
 
-    @Test("TCP flags typealias works")
-    func tcpFlags() {
+    @Test
+    func `TCP flags typealias works`() {
       let flags: Sockets.TCP.Flags = [.syn, .ack]
       #expect(flags.contains(.syn))
       #expect(flags.contains(.ack))
     }
 
-    @Test("TCP constants")
-    func tcpConstants() {
+    @Test
+    func `TCP constants`() {
       #expect(Sockets.TCP.protocolNumber == 6)
       #expect(Sockets.TCP.minimumHeaderSize == 20)
       #expect(Sockets.TCP.maximumHeaderSize == 60)
@@ -54,14 +54,14 @@ struct SocketsStandardTests {
   @Suite("UDP")
   struct UDPTests {
 
-    @Test("UDP port typealias works")
-    func udpPort() {
+    @Test
+    func `UDP port typealias works`() {
       let port = Sockets.UDP.Port.dns
       #expect(port.rawValue == 53)
     }
 
-    @Test("UDP datagram creation")
-    func udpDatagram() throws {
+    @Test
+    func `UDP datagram creation`() throws {
       let datagram = try Sockets.UDP.Datagram(
         source: 12345,
         destination: .dns,
@@ -71,8 +71,8 @@ struct SocketsStandardTests {
       #expect(datagram.header.destination.rawValue == 53)
     }
 
-    @Test("UDP constants")
-    func udpConstants() {
+    @Test
+    func `UDP constants`() {
       #expect(Sockets.UDP.protocolNumber == 17)
       #expect(Sockets.UDP.headerSize == 8)
     }
@@ -83,8 +83,8 @@ struct SocketsStandardTests {
   @Suite("IP")
   struct IPTests {
 
-    @Test("IPv4 address typealias works")
-    func ipv4Address() {
+    @Test
+    func `IPv4 address typealias works`() {
       let address = Sockets.IP.V4.Address(192, 168, 1, 1)
       #expect(address.octets.0 == 192)
       #expect(address.octets.1 == 168)
@@ -92,8 +92,8 @@ struct SocketsStandardTests {
       #expect(address.octets.3 == 1)
     }
 
-    @Test("IPv4 loopback")
-    func ipv4Loopback() {
+    @Test
+    func `IPv4 loopback`() {
       let loopback = Sockets.IP.V4.Address.loopback
       #expect(loopback.octets.0 == 127)
       #expect(loopback.octets.3 == 1)
