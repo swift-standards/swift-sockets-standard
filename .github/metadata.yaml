@@ -1,0 +1,11 @@
+# .github/metadata.yaml
+# Triaged by AI-assisted bulk pass (2026-04-29).
+description: "Unified socket networking types for TCP, UDP, and IP in Swift."
+topics:
+  - standards
+  - sockets
+  - networking
+  - tcp
+  - udp
+  - ip
+homepage: "https://swift-institute.org"
