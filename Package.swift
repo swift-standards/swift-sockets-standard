@@ -14,9 +14,9 @@ let package = Package(
         .library(name: "Sockets Standard", targets: ["Sockets Standard"])
     ],
     dependencies: [
-        .package(path: "../../swift-ietf/swift-rfc-768"),
-        .package(path: "../../swift-ietf/swift-rfc-791"),
-        .package(path: "../../swift-ietf/swift-rfc-9293")
+        .package(url: "https://github.com/swift-ietf/swift-rfc-768.git", branch: "main"),
+        .package(url: "https://github.com/swift-ietf/swift-rfc-791.git", branch: "main"),
+        .package(url: "https://github.com/swift-ietf/swift-rfc-9293.git", branch: "main")
     ],
     targets: [
         .target(
