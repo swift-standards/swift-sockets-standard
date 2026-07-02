@@ -1,6 +1,6 @@
 # .github/metadata.yaml
 # Triaged by AI-assisted bulk pass (2026-04-29).
-description: "Unified socket networking types for TCP, UDP, and IP in Swift."
+description: "Unified TCP (RFC 9293), UDP (RFC 768), and IP (RFC 791) socket networking types for Swift."
 topics:
   - standards
   - sockets
