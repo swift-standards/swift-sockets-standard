@@ -13,19 +13,19 @@
 public import RFC_791
 
 extension Sockets {
-  /// Internet Protocol (IP)
-  ///
-  /// Provides addressing and routing for socket communication.
-  ///
-  /// ## Versions
-  ///
-  /// - ``V4``: IPv4 per RFC 791
-  public enum IP {}
+    /// Internet Protocol (IP)
+    ///
+    /// Provides addressing and routing for socket communication.
+    ///
+    /// ## Versions
+    ///
+    /// - ``V4``: IPv4 per RFC 791
+    public enum IP {}
 }
 
 // MARK: - IPv4
 
 extension Sockets.IP {
-  /// IPv4 per RFC 791
-  public typealias V4 = RFC_791.IPv4
+    /// IPv4 per RFC 791
+    public typealias V4 = RFC_791.IPv4
 }
