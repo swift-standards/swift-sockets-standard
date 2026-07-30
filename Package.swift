@@ -8,7 +8,7 @@ let package = Package(
         .macOS(.v26),
         .iOS(.v26),
         .tvOS(.v26),
-        .watchOS(.v26)
+        .watchOS(.v26),
     ],
     products: [
         .library(name: "Sockets Standard", targets: ["Sockets Standard"])
@@ -16,7 +16,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/swift-ietf/swift-rfc-768.git", branch: "main"),
         .package(url: "https://github.com/swift-ietf/swift-rfc-791.git", branch: "main"),
-        .package(url: "https://github.com/swift-ietf/swift-rfc-9293.git", branch: "main")
+        .package(url: "https://github.com/swift-ietf/swift-rfc-9293.git", branch: "main"),
     ],
     targets: [
         .target(
@@ -24,13 +24,13 @@ let package = Package(
             dependencies: [
                 .product(name: "RFC 768", package: "swift-rfc-768"),
                 .product(name: "RFC 791", package: "swift-rfc-791"),
-                .product(name: "RFC 9293", package: "swift-rfc-9293")
+                .product(name: "RFC 9293", package: "swift-rfc-9293"),
             ]
         ),
         .testTarget(
             name: "Sockets Standard Tests",
             dependencies: [
-                "Sockets Standard",
+                "Sockets Standard"
             ]
         ),
     ],
