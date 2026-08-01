@@ -23,6 +23,8 @@ extension Sockets.TCP {
         @Test
         func `TCP port typealias works`() {
             let port = Sockets.TCP.Port.http
+            // swift-linter:disable:next raw value access
+            // REASON: test asserts the RawRepresentable `rawValue` contract directly.
             #expect(port.rawValue == 80)
         }
 
@@ -59,6 +61,8 @@ extension Sockets.UDP {
         @Test
         func `UDP port typealias works`() {
             let port = Sockets.UDP.Port.dns
+            // swift-linter:disable:next raw value access
+            // REASON: test asserts the RawRepresentable `rawValue` contract directly.
             #expect(port.rawValue == 53)
         }
 
@@ -69,7 +73,11 @@ extension Sockets.UDP {
                 destination: .dns,
                 data: [0x00, 0x01, 0x00, 0x00]
             )
+            // swift-linter:disable:next raw value access
+            // REASON: test asserts the RawRepresentable `rawValue` contract directly.
             #expect(datagram.header.source.rawValue == 12345)
+            // swift-linter:disable:next raw value access
+            // REASON: test asserts the RawRepresentable `rawValue` contract directly.
             #expect(datagram.header.destination.rawValue == 53)
         }
 
