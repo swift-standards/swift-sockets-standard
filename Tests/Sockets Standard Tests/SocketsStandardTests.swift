@@ -1,19 +1,5 @@
-// ===----------------------------------------------------------------------===//
-//
-// Copyright (c) 2025 Coen ten Thije Boonkkamp
-// Licensed under Apache License v2.0
-//
-// See LICENSE.txt for license information
-// See CONTRIBUTORS.txt for the list of project contributors
-//
-// SPDX-License-Identifier: Apache-2.0
-//
-// ===----------------------------------------------------------------------===//
-
 import Sockets_Standard
 import Testing
-
-// MARK: - TCP Tests
 
 extension Sockets.TCP {
 
@@ -23,8 +9,7 @@ extension Sockets.TCP {
         @Test
         func `TCP port typealias works`() {
             let port = Sockets.TCP.Port.http
-            // swift-linter:disable:next raw value access
-            // REASON: test asserts the RawRepresentable `rawValue` contract directly.
+
             #expect(port.rawValue == 80)
         }
 
@@ -51,8 +36,6 @@ extension Sockets.TCP {
     }
 }
 
-// MARK: - UDP Tests
-
 extension Sockets.UDP {
 
     @Suite("UDP")
@@ -61,8 +44,7 @@ extension Sockets.UDP {
         @Test
         func `UDP port typealias works`() {
             let port = Sockets.UDP.Port.dns
-            // swift-linter:disable:next raw value access
-            // REASON: test asserts the RawRepresentable `rawValue` contract directly.
+
             #expect(port.rawValue == 53)
         }
 
@@ -73,11 +55,9 @@ extension Sockets.UDP {
                 destination: .dns,
                 data: [0x00, 0x01, 0x00, 0x00]
             )
-            // swift-linter:disable:next raw value access
-            // REASON: test asserts the RawRepresentable `rawValue` contract directly.
+
             #expect(datagram.header.source.rawValue == 12345)
-            // swift-linter:disable:next raw value access
-            // REASON: test asserts the RawRepresentable `rawValue` contract directly.
+
             #expect(datagram.header.destination.rawValue == 53)
         }
 
@@ -88,8 +68,6 @@ extension Sockets.UDP {
         }
     }
 }
-
-// MARK: - IP Tests
 
 extension Sockets.IP {
 
