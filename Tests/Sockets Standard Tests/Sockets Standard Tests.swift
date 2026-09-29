@@ -135,7 +135,7 @@ extension Sockets.UDP {
 
         @Test
         func `The specification pins the protocol number and the header size`() {
-            #expect(Sockets.UDP.protocolNumber == 17)
+            #expect(Sockets.UDP.protocolNumber.rawValue == 17)
             #expect(Sockets.UDP.headerSize == 8)
         }
     }
