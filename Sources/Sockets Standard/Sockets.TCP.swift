@@ -33,7 +33,7 @@ extension Sockets.TCP {
 
     public typealias Option = RFC_9293.`3`.`2`.Option
 
-    public typealias SACKBlock = RFC_9293.`3`.`2`.SACK.Block
+    public typealias SACK = RFC_9293.`3`.`2`.SACK
 }
 
 extension Sockets.TCP {
@@ -45,9 +45,9 @@ extension Sockets.TCP {
 
     public typealias TCB = RFC_9293.TCB
 
-    public typealias SendVariables = RFC_9293.`3`.`3`.Send.Variables
+    public typealias Send = RFC_9293.`3`.`3`.Send
 
-    public typealias ReceiveVariables = RFC_9293.`3`.`3`.Receive.Variables
+    public typealias Receive = RFC_9293.`3`.`3`.Receive
 }
 
 extension Sockets.TCP {

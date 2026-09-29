@@ -14,6 +14,7 @@ let package = Package(
         .library(name: "Sockets Standard", targets: ["Sockets Standard"])
     ],
     dependencies: [
+        .package(url: "https://github.com/swift-atoms/swift-byte.git", branch: "main"),
         .package(url: "https://github.com/swift-ietf/swift-rfc-768.git", branch: "main"),
         .package(url: "https://github.com/swift-ietf/swift-rfc-791.git", branch: "main"),
         .package(url: "https://github.com/swift-ietf/swift-rfc-9293.git", branch: "main"),
@@ -30,7 +31,8 @@ let package = Package(
         .testTarget(
             name: "Sockets Standard Tests",
             dependencies: [
-                "Sockets Standard"
+                .target(name: "Sockets Standard"),
+                .product(name: "Byte", package: "swift-byte"),
             ]
         ),
     ],

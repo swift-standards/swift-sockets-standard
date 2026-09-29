@@ -1,1 +1,1 @@
-public enum Sockets: Sendable {}
+public enum Sockets {}
