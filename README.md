@@ -1,32 +1,10 @@
-# Sockets Standard
+# swift-sockets-standard
 
-![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
+Use this package when you work with TCP, UDP and IPv4 values together, such as ports, headers, datagrams, addresses and connection state, and want them under one namespace. Start from `Sockets.TCP.Header` or `Sockets.TCP.TCB` for TCP, `Sockets.UDP.Datagram` for UDP, and `Sockets.IP.V4.Address` for addresses. Each name is the type from the protocol's own package, and those packages are imported with this one. If you need only one protocol, use swift-rfc-9293 for TCP, swift-rfc-768 for UDP or swift-rfc-791 for IPv4.
 
-Typed socket protocol and address types for network communication in Swift.
+## Laws
 
-`Sockets Standard` groups the pure domain models of the transport and network standards under one namespace and re-exports them: `Sockets.TCP` (RFC 9293 ports, sequence numbers, header, flags, options, connection state and the transmission control block), `Sockets.UDP` (RFC 768 ports, header, length, checksum, pseudo-header and datagram) and `Sockets.IP.V4` (RFC 791 addresses). Wire coders live in the sibling `swift-rfc-XXXX-coder` packages.
-
-## Installation
-
-Add to your `Package.swift`:
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/swift-standards/swift-sockets-standard.git", branch: "main")
-]
-```
-
-Add the product to your target:
-
-```swift
-.target(
-    name: "App",
-    dependencies: [
-        .product(name: "Sockets Standard", package: "swift-sockets-standard")
-    ]
-)
-```
-
-## License
-
-Apache 2.0. See [LICENSE.md](LICENSE.md).
+- A `Sockets.TCP.TCB` built with an initial send sequence number has its next send sequence number one past it.
+- Without a negotiated maximum segment size, a `Sockets.TCP.TCB` over IPv4 uses `Sockets.TCP.defaultMSSIPv4`.
+- A `Sockets.TCP.Header` built without options has a data offset of `Sockets.TCP.minimumHeaderSize`, 20 bytes.
+- A `Sockets.UDP.Datagram` sets its length to the 8 byte header plus its payload. A datagram with an empty payload has `Sockets.UDP.minimumLength` and no checksum.
