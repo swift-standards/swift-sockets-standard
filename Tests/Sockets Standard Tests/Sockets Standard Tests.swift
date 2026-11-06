@@ -24,7 +24,9 @@ func address(_ first: UInt8, _ second: UInt8, _ third: UInt8, _ fourth: UInt8) -
     )
 }
 
-extension Sockets.TCP {
+enum `Sockets.TCP Tests` {}
+
+extension `Sockets.TCP Tests` {
 
     @Suite struct `Transmission Control Protocol` {
 
@@ -103,7 +105,9 @@ extension Sockets.TCP {
     }
 }
 
-extension Sockets.UDP {
+enum `Sockets.UDP Tests` {}
+
+extension `Sockets.UDP Tests` {
 
     @Suite struct `User Datagram Protocol` {
 
@@ -141,7 +145,9 @@ extension Sockets.UDP {
     }
 }
 
-extension Sockets.IP {
+enum `Sockets.IP Tests` {}
+
+extension `Sockets.IP Tests` {
 
     @Suite struct `Internet Protocol` {
 
